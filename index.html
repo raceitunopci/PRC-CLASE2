@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión Integración Comunitaria (MICC/PRC) | Carabineros de Chile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        carabineros: {
+                            dark: '#0B2515',
+                            DEFAULT: '#143822',
+                            light: '#1B4D2F',
+                            accent: '#D4AF37',
+                            accentHover: '#F4C430',
+                            grayBg: '#F3F4F6'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Montserrat', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased selection:bg-carabineros-accent selection:text-carabineros-dark">
+
+    <div class="bg-carabineros-dark text-white text-xs py-2 px-4 border-b border-carabineros-accent/30">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center space-x-4">
+                <span class="flex items-center gap-1.5 font-medium">
+                    <i class="fa-solid fa-shield-halved text-carabineros-accent"></i> Gobierno de Chile | Carabineros de Chile
+                </span>
+                <span class="hidden md:inline text-gray-400">|</span>
+                <span class="hidden md:inline text-gray-300">Plataforma Oficial de Gestión Comunitaria (MICC / PRC)</span>
+            </div>
+            <div class="flex items-center space-x-6">
+                <span class="text-carabineros-accent font-bold flex items-center gap-1">
+                    <i class="fa-solid fa-circle text-[8px] text-emerald-400 animate-pulse"></i> Sistema con Almacenamiento Local
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <header class="bg-carabineros shadow-lg sticky top-0 z-50 border-b-2 border-carabineros-accent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 bg-carabineros-accent/20 rounded-full flex items-center justify-center border border-carabineros-accent">
+                        <i class="fa-solid fa-star text-carabineros-accent text-2xl"></i>
+                    </div>
+                    <div>
+                        <div class="text-xs font-semibold tracking-widest text-carabineros-accent uppercase">Sistema MICC / PRC</div>
+                        <h1 class="text-white text-lg sm:text-xl font-bold tracking-tight">Gestión de Factores de Riesgo</h1>
+                    </div>
+                </div>
+
+                <nav class="hidden lg:flex items-center space-x-8">
+                    <a href="#inicio" class="text-white hover:text-carabineros-accent font-medium text-sm transition-colors py-2 border-b-2 border-carabineros-accent">Inicio</a>
+                    <a href="#registro-modulo" class="text-gray-200 hover:text-carabineros-accent font-medium text-sm transition-colors py-2">Ingreso Actividad & FR</a>
+                    <a href="#dashboard" class="text-gray-200 hover:text-carabineros-accent font-medium text-sm transition-colors py-2">Dashboard y Envío Email</a>
+                    <a href="#contacto" class="bg-carabineros-accent hover:bg-carabineros-accentHover text-carabineros-dark font-bold px-4 py-2 rounded-lg text-sm shadow transition-all transform hover:scale-105">
+                        <i class="fa-solid fa-headset mr-1.5"></i> Soporte MICC
+                    </a>
+                </nav>
+
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-white focus:outline-none p-2 rounded-md hover:bg-carabineros-light">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden lg:hidden bg-carabineros-dark border-t border-carabineros-light px-4 pt-2 pb-6 space-y-3">
+            <a href="#inicio" class="block text-white hover:text-carabineros-accent py-2 font-medium">Inicio</a>
+            <a href="#registro-modulo" class="block text-white hover:text-carabineros-accent py-2 font-medium">Ingreso Actividad & FR</a>
+            <a href="#dashboard" class="block text-white hover:text-carabineros-accent py-2 font-medium">Dashboard y Envío Email</a>
+            <a href="#contacto" class="block bg-carabineros-accent text-carabineros-dark text-center font-bold py-2.5 rounded-lg shadow mt-2">Soporte MICC</a>
+        </div>
+    </header>
+
+    <section id="inicio" class="relative bg-gradient-to-r from-carabineros-dark via-carabineros to-carabineros-light text-white py-16 overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="max-w-3xl space-y-4">
+                <span class="inline-flex items-center gap-2 bg-carabineros-accent/20 border border-carabineros-accent text-carabineros-accent px-3 py-1 rounded-full text-xs font-semibold tracking-wider uppercase">
+                    <i class="fa-solid fa-envelope-circle-check"></i> Envío Directo y Almacenamiento Local
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+                    Plataforma de Registro de Actividades y Factores de Riesgo (FR)
+                </h2>
+                <p class="text-gray-300 text-base leading-relaxed">
+                    Sistema estandarizado para delegados de cuadrante y oficinas de integración comunitaria. Registre intervenciones barriales, clasifique factores de riesgo (criminal, social, situacional, vial, forestal), asigne compromisos y envíe el reporte consolidado directamente por correo electrónico.
+                </p>
+                <div class="flex flex-wrap gap-4 pt-2">
+                    <a href="#registro-modulo" class="bg-carabineros-accent hover:bg-carabineros-accentHover text-carabineros-dark font-bold px-6 py-3 rounded-xl shadow-lg transition flex items-center gap-2 text-sm">
+                        <i class="fa-solid fa-plus-circle"></i> Nuevo Registro de Actividad
+                    </a>
+                    <a href="#dashboard" class="bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold px-6 py-3 rounded-xl backdrop-blur-sm transition flex items-center gap-2 text-sm">
+                        <i class="fa-solid fa-paper-plane"></i> Enviar Reporte por Correo (<span id="counter-badge">3</span>)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="registro-modulo" class="py-16 bg-gray-50">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden">
+                <div class="bg-carabineros px-6 py-5 text-white flex justify-between items-center border-b-2 border-carabineros-accent">
+                    <div>
+                        <h3 class="text-xl font-bold flex items-center gap-2">
+                            <i class="fa-solid fa-file-pen text-carabineros-accent"></i> Ingreso de Actividad y Factores de Riesgo (FR)
+                        </h3>
+                        <p class="text-xs text-gray-300 mt-1">Los datos ingresados se guardan automáticamente en su navegador (localStorage).</p>
+                    </div>
+                    <span class="bg-carabineros-accent text-carabineros-dark text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider hidden sm:inline-block">Módulo PRC</span>
+                </div>
+
+                <form id="activity-form" onsubmit="handleFormSubmit(event)" class="p-6 sm:p-8 space-y-8">
+                    
+                    <div>
+                        <h4 class="text-sm font-bold text-carabineros uppercase tracking-wider mb-4 pb-2 border-b border-gray-200 flex items-center gap-2">
+                            <i class="fa-solid fa-circle-info"></i> 1. Datos Generales de la Actividad
+                        </h4>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 uppercase mb-2">Tipo de Actividad *</label>
+                                <select id="act-type" required class="w-full bg-gray-50 border border-gray-300 rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-carabineros focus:outline-none">
+                                    <option value="" disabled selected>-- Seleccione actividad --</option>
+                                    <option value="REUNIONES">REUNIONES</option>
+                                    <option value="CHARLA">CHARLA</option>
+                                    <option value="DIFUSION">DIFUSION</option>
+                                    <option value="MESA_TRABAJO">MESA_TRABAJO</option>
+                                    <option value="OPERATIVO">OPERATIVO</option>
+                                    <option value="ACT_INTEGRACION">ACT_INTEGRACION</option>
+                                    <option value="REU_CARG_R">REU_CARG_R</option>
+                                    <option value="REU_INTERNA">REU_INTERNA</option>
+                                    <option value="ENTREVISTA">ENTREVISTA</option>
+                                    <option value="ACT_BRIGADA">ACT_BRIGADA</option>
+                                    <option value="SERVICIOS_E">SERVICIOS_E</option>
+                                    <option value="FACTOR_PREV">FACTOR_PREV</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 uppercase mb-2">Comuna / Sector *</label>
+                                <input type="text" id="act-comuna" required placeholder="Ej: Santiago, Maipú, Providencia..." class="w-full bg-gray-50 border border-gray-300 rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-carabineros focus:outline-none">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 uppercase mb-2">Fecha de Ejecución *</label>
+                                <input type="date" id="act-fecha" required class="w-full bg-gray-50 border border-gray-300 rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-carabineros focus:outline-none">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 uppercase mb-2">Delegado / Funcionario Responsable *</label>
+                                <input type="text" id="act-responsable" required placeholder="Grado y Nombre del Funcionario" class="w-full bg-gray-50 border border-gray-300 rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-carabineros focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 uppercase mb-2">Organización / Entidad Participante</label>
+                                <input type="text" id="act-org" placeholder="Ej: Junta de Vecinos Los Aromos / Colegios..." class="w-full bg-gray-50 border border-gray-300 rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-carabineros focus:outline-none">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-amber-50/50 border border-amber-200/60 rounded-2xl p-6">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-2">
+                            <div>
+                                <h4 class="text-sm font-bold text-amber-900 uppercase tracking-wider flex items-center gap-2">
+                                    <i class="fa-solid fa-triangle-exclamation text-amber-600"></i> 2. Factores de Riesgo (FR) Detectados y Compromisos
+                                </h4>
+                                <p class="text-xs text-amber-700">Clasifique los factores de riesgo identificados y asigne sus compromisos y estado de solución.</p>
+                            </div>
+                            <button type="button" onclick="addRiskFactorRow()" class="bg-carabineros hover:bg-carabineros-light text-white font-bold px-3 py-2 rounded-lg text-xs shadow flex items-center gap-1.5 transition">
+                                <i class="fa-solid fa-plus"></i> Añadir Factor de Riesgo
+                            </button>
+                        </div>
+
+                        <div id="fr-container" class="space-y-4">
+                            <div class="fr-item bg-white p-4 rounded-xl border border-amber-200 shadow-sm relative space-y-4">
+                                <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+                                    <div class="md:col-span-4">
+                                        <label class="block text-[11px] font-bold text-gray-700 uppercase mb-1">Tipo de Factor de Riesgo (FR) *</label>
+                                        <select name="fr_tipo[]" required class="w-full bg-gray-50 border border-gray-300 rounded-lg px-3 py-2 text-xs focus:ring-2 focus:ring-carabineros focus:outline-none">
+                                            <option value="" disabled selected>-- Seleccione FR --</option>
+                                            <option value="FR criminal">FR criminal</option>
+                                            <option value="FR social">FR social</option>
+                                            <option value="FR situacional" selected>FR situacional</option>
+                                            <option value="FR vial">FR vial</option>
+                                            <option value="FR forestal">FR forestal</option>
+                                        </select>
+                                    </div>
+                                    <div class="md:col-span-8">
+                                        <label class="block text-[11px] font-bold text-gray-700 uppercase mb-1">Descripción del Riesgo Detectado *</label>
+                                        <input type="text" name="fr_desc[]" required placeholder="Ej: Luminaria pública dañada en esquina pasaje Los Copihues" value="Luminaria pública dañada en esquina pasaje Los Copihues" class="w-full bg-gray-50 border border-gray-300 rounded-lg px-3 py-2 text-xs focus:ring-2 focus:ring-carabineros focus:outline-none">
+                                    </div>
+                                </div>
+
+                                <div class="grid grid-cols-1 md:grid-cols-12 gap-4 pt-2 border-t border-gray-100">
+                                    <div class="md:col-span-7">
+                                        <label class="block text-[11px] font-bold text-gray-700 uppercase mb-1">Compromiso Asignado *</label>
+                                        <input type="text" name="fr_compromiso[]" required placeholder="Ej: Oficiar a Dirección de Aseo y Ornato Municipal" value="Oficiar a Dirección de Aseo y Ornato Municipal" class="w-full bg-gray-50 border border-gray-300 rounded-lg px-3 py-2 text-xs focus:ring-2 focus:ring-carabineros focus:outline-none">
+                                    </div>
+                                    <div class="md:col-span-3">
+                                        <label class="block text-[11px] font-bold text-gray-700 uppercase mb-1">Estado de Solución *</label>
+                                        <select name="fr_estado[]" required class="w-full bg-gray-50 border border-gray-300 rounded-lg px-3 py-2 text-xs font-semibold focus:ring-2 focus:ring-carabineros focus:outline-none">
+                                            <option value="Con Solucion">Con Solución</option>
+                                            <option value="Sin Solucion" selected>Sin Solución (En Gestión)</option>
+                                        </select>
+                                    </div>
+                                    <div class="md:col-span-2 flex items-end">
+                                        <button type="button" onclick="removeRiskFactorRow(this)" class="w-full bg-red-100 hover:bg-red-200 text-red-700 font-bold py-2 px-3 rounded-lg text-xs transition flex items-center justify-center gap-1">
+                                            <i class="fa-solid fa-trash"></i> Quitar
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-end gap-4 pt-4 border-t border-gray-200">
+                        <button type="reset" class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold px-6 py-3 rounded-xl text-sm transition">
+                            Limpiar Formulario
+                        </button>
+                        <button type="submit" class="bg-carabineros hover:bg-carabineros-light text-white font-bold px-8 py-3 rounded-xl shadow-lg transition text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-floppy-disk"></i> Registrar y Guardar Localmente
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="dashboard" class="py-16 bg-white border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+                <div>
+                    <span class="text-carabineros font-bold text-sm tracking-widest uppercase bg-carabineros/10 px-3 py-1 rounded-full">Panel de Control & Envío</span>
+                    <h2 class="text-3xl font-extrabold text-carabineros-dark mt-3">Registros Guardados y Envío por Correo</h2>
+                    <p class="text-gray-600 text-sm mt-1">Configure el correo de destino, revise los factores de riesgo y envíe el reporte completo con un solo clic.</p>
+                </div>
+                
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="filterRecords('all')" class="filter-btn active bg-carabineros text-white font-semibold px-4 py-2 rounded-lg text-xs transition">Todos</button>
+                    <button onclick="filterRecords('Sin Solucion')" class="filter-btn bg-gray-200 text-gray-700 hover:bg-gray-300 font-semibold px-4 py-2 rounded-lg text-xs transition">Sin Solución</button>
+                    <button onclick="filterRecords('Con Solucion')" class="filter-btn bg-gray-200 text-gray-700 hover:bg-gray-300 font-semibold px-4 py-2 rounded-lg text-xs transition">Con Solución</button>
+                </div>
+            </div>
+
+            <!-- Email Dispatch Box -->
+            <div class="bg-carabineros-dark rounded-2xl p-6 mb-8 text-white shadow-xl border border-carabineros-accent/40">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                    <div class="space-y-1 w-full md:w-auto">
+                        <h4 class="text-base font-bold flex items-center gap-2 text-carabineros-accent">
+                            <i class="fa-solid fa-envelope-open-text"></i> Despacho de Reporte por Correo Electrónico
+                        </h4>
+                        <p class="text-xs text-gray-300">Ingrese la dirección de correo del destinatario (ej. comisaria@carabineros.cl o supervisor institucional).</p>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+                        <input type="email" id="destinatario-email" placeholder="correo.destinatario@carabineros.cl" value="relaciones.comunitarias@carabineros.cl" class="bg-white/10 border border-white/20 text-white placeholder-gray-400 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-carabineros-accent focus:outline-none w-full sm:w-80">
+                        <button onclick="sendReportByEmail()" class="bg-carabineros-accent hover:bg-carabineros-accentHover text-carabineros-dark font-extrabold px-6 py-2.5 rounded-xl text-sm transition shadow-lg flex items-center justify-center gap-2 whitespace-nowrap">
+                            <i class="fa-solid fa-paper-plane"></i> Enviar por Correo
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Overview Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div class="bg-carabineros-grayBg p-5 rounded-2xl border border-gray-200">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-xs font-bold text-gray-500 uppercase tracking-wider">Total Registros</p>
+                            <h3 id="stat-total" class="text-3xl font-extrabold text-carabineros-dark mt-1">3</h3>
+                        </div>
+                        <div class="w-10 h-10 rounded-xl bg-carabineros/10 text-carabineros flex items-center justify-center font-bold">
+                            <i class="fa-solid fa-folder-open"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-amber-50 p-5 rounded-2xl border border-amber-200">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-xs font-bold text-amber-800 uppercase tracking-wider">FR Sin Solución</p>
+                            <h3 id="stat-pending" class="text-3xl font-extrabold text-amber-700 mt-1">2</h3>
+                        </div>
+                        <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-emerald-50 p-5 rounded-2xl border border-emerald-200">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-xs font-bold text-emerald-800 uppercase tracking-wider">FR Con Solución</p>
+                            <h3 id="stat-resolved" class="text-3xl font-extrabold text-emerald-700 mt-1">2</h3>
+                        </div>
+                        <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-blue-50 p-5 rounded-2xl border border-blue-200">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-xs font-bold text-blue-800 uppercase tracking-wider">Estado de Datos</p>
+                            <h3 class="text-lg font-bold text-blue-700 mt-2">Guardado Local</h3>
+                        </div>
+                        <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center font-bold">
+                            <i class="fa-solid fa-database"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Records Table -->
+            <div class="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-carabineros-dark text-white text-xs uppercase tracking-wider">
+                                <th class="py-4 px-6">ID / Fecha</th>
+                                <th class="py-4 px-6">Actividad & Comuna</th>
+                                <th class="py-4 px-6">Responsable</th>
+                                <th class="py-4 px-6">Factores de Riesgo (FR) & Compromisos</th>
+                                <th class="py-4 px-6">Estado Solución</th>
+                                <th class="py-4 px-6 text-center">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="records-table-body" class="divide-y divide-gray-200 text-sm">
+                            <!-- Injected dynamically via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-carabineros-dark text-white px-6 py-3.5 rounded-xl shadow-2xl flex items-center gap-3 border border-carabineros-accent">
+        <i class="fa-solid fa-circle-check text-carabineros-accent text-lg"></i>
+        <div>
+            <h5 class="font-bold text-sm" id="toast-title">Operación Exitosa</h5>
+            <p class="text-xs text-gray-300" id="toast-msg">El registro fue guardado correctamente en el sistema.</p>
+        </div>
+    </div>
+
+    <footer class="bg-carabineros-dark text-white pt-12 pb-8 border-t-2 border-carabineros-accent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+            <div class="flex items-center justify-center space-x-3">
+                <div class="w-8 h-8 bg-carabineros-accent/20 rounded-full flex items-center justify-center border border-carabineros-accent">
+                    <i class="fa-solid fa-star text-carabineros-accent text-xs"></i>
+                </div>
+                <span class="font-bold text-base">Carabineros de Chile - Dirección Nacional de Orden y Seguridad</span>
+            </div>
+            <p class="text-xs text-gray-400 max-w-xl mx-auto">
+                Plataforma interna de gestión de integración comunitaria y levantamiento de factores de riesgo territorial MICC / PRC con persistencia local.
+            </p>
+            <div class="border-t border-gray-800 pt-6 text-xs text-gray-500">
+                <p>&copy; 2026 Carabineros de Chile. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initial Mock Database or load from localStorage
+        let defaultRecords = [
+            {
+                id: "CC-2026-9481",
+                tipo: "CHARLA",
+                comuna: "Santiago",
+                fecha: "2026-09-24",
+                responsable: "Capitán Juan Pérez Soto",
+                organizacao: "Junta de Vecinos Barrio Cívico",
+                factores: [
+                    { tipo: "FR situacional", desc: "Escasa iluminación en plaza central", compromiso: "Coordinar reposición de luminarias con municipio", estado: "Sin Solucion" },
+                    { tipo: "FR social", desc: "Consumo de alcohol en vía pública", compromiso: "Aumentar patrullaje preventivo focalizado", estado: "Con Solucion" }
+                ]
+            },
+            {
+                id: "CC-2026-9482",
+                tipo: "MESA_TRABAJO",
+                comuna: "Providencia",
+                fecha: "2026-09-23",
+                responsable: "Mayor María Ignacia Rojas",
+                organizacao: "Asociación Gastronómica Providencia",
+                factores: [
+                    { tipo: "FR criminal", desc: "Robos por sorpresa a transeúntes", compromiso: "Implementar chat Red Comercio Seguro y rondas mixtas", estado: "Con Solucion" }
+                ]
+            },
+            {
+                id: "CC-2026-9483",
+                tipo: "OPERATIVO",
+                comuna: "Maipú",
+                fecha: "2026-09-22",
+                responsable: "Subteniente Camila Morales",
+                organizacao: "Comunidad Escolar Colegio San Alberto",
+                factores: [
+                    { tipo: "FR vial", desc: "Ausencia de señalética de tránsito escolar", compromiso: "Instalación de lomo de toro y señalética vertical", estado: "Sin Solucion" },
+                    { tipo: "FR forestal", desc: "Acumulación de maleza y basura en sitio eriazo", compromiso: "Notificación a propietario y aseo municipal", estado: "Sin Solucion" }
+                ]
+            }
+        ];
+
+        let records = JSON.parse(localStorage.getItem('carabineros_micc_records')) || defaultRecords;
+
+        function saveRecordsToStorage() {
+            localStorage.setItem('carabineros_micc_records', JSON.stringify(records));
+        }
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Set default date to today
+        document.getElementById('act-fecha').valueAsDate = new Date();
+
+        // Add Risk Factor Dynamic Row
+        function addRiskFactorRow() {
+            const container = document.getElementById('fr-container');
+            const row = document.createElement('div');
+            row.className = 'fr-item bg-white p-4 rounded-xl border border-amber-200 shadow-sm relative space-y-4 animate-fadeIn';
+            row.innerHTML = `
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+                    <div class="md:col-span-4">
+                        <label class="block text-[11px] font-bold text-gray-700 uppercase mb-1">Tipo de Factor de Riesgo (FR) *</label>
+                        <select name="fr_tipo[]" required class="w-full bg-gray-50 border border-gray-300 rounded-lg px-3 py-2 text-xs focus:ring-2 focus:ring-carabineros focus:outline-none">
+                            <option value="" disabled selected>-- Seleccione FR --</option>
+                            <option value="FR criminal">FR criminal</option>
+                            <option value="FR social">FR social</option>
+                            <option value="FR situacional">FR situacional</option>
+                            <option value="FR vial">FR vial</option>
+                            <option value="FR forestal">FR forestal</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-8">
+                        <label class="block text-[11px] font-bold text-gray-700 uppercase mb-1">Descripción del Riesgo Detectado *</label>
+                        <input type="text" name="fr_desc[]" required placeholder="Describa el factor de riesgo..." class="w-full bg-gray-50 border border-gray-300 rounded-lg px-3 py-2 text-xs focus:ring-2 focus:ring-carabineros focus:outline-none">
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-4 pt-2 border-t border-gray-100">
+                    <div class="md:col-span-7">
+                        <label class="block text-[11px] font-bold text-gray-700 uppercase mb-1">Compromiso Asignado *</label>
+                        <input type="text" name="fr_compromiso[]" required placeholder="Compromiso institucional o multisectorial..." class="w-full bg-gray-50 border border-gray-300 rounded-lg px-3 py-2 text-xs focus:ring-2 focus:ring-carabineros focus:outline-none">
+                    </div>
+                    <div class="md:col-span-3">
+                        <label class="block text-[11px] font-bold text-gray-700 uppercase mb-1">Estado de Solución *</label>
+                        <select name="fr_estado[]" required class="w-full bg-gray-50 border border-gray-300 rounded-lg px-3 py-2 text-xs font-semibold focus:ring-2 focus:ring-carabineros focus:outline-none">
+                            <option value="Con Solucion">Con Solución</option>
+                            <option value="Sin Solucion" selected>Sin Solución (En Gestión)</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-2 flex items-end">
+                        <button type="button" onclick="removeRiskFactorRow(this)" class="w-full bg-red-100 hover:bg-red-200 text-red-700 font-bold py-2 px-3 rounded-lg text-xs transition flex items-center justify-center gap-1">
+                            <i class="fa-solid fa-trash"></i> Quitar
+                        </button>
+                    </div>
+                </div>
+            `;
+            container.appendChild(row);
+        }
+
+        function removeRiskFactorRow(btn) {
+            const container = document.getElementById('fr-container');
+            if (container.children.length > 1) {
+                btn.closest('.fr-item').remove();
+            } else {
+                showToast("Aviso", "Debe mantener al menos un factor de riesgo en el registro.", "error");
+            }
+        }
+
+        // Handle Form Submit
+        function handleFormSubmit(e) {
+            e.preventDefault();
+
+            const tipo = document.getElementById('act-type').value;
+            const comuna = document.getElementById('act-comuna').value;
+            const fecha = document.getElementById('act-fecha').value;
+            const responsable = document.getElementById('act-responsable').value;
+            const organizacao = document.getElementById('act-org').value || 'Sin especificar';
+
+            const frTipos = document.querySelectorAll('select[name="fr_tipo[]"]');
+            const frDescs = document.querySelectorAll('input[name="fr_desc[]"]');
+            const frCompromisos = document.querySelectorAll('input[name="fr_compromiso[]"]');
+            const frEstados = document.querySelectorAll('select[name="fr_estado[]"]');
+
+            let factores = [];
+            for (let i = 0; i < frTipos.length; i++) {
+                factores.push({
+                    tipo: frTipos[i].value,
+                    desc: frDescs[i].value,
+                    compromiso: frCompromisos[i].value,
+                    estado: frEstados[i].value
+                });
+            }
+
+            const newRecord = {
+                id: "CC-2026-" + Math.floor(1000 + Math.random() * 9000),
+                tipo,
+                comuna,
+                fecha,
+                responsable,
+                organizacao,
+                factores
+            };
+
+            records.unshift(newRecord);
+            saveRecordsToStorage();
+            renderTable('all');
+            updateStats();
+
+            document.getElementById('activity-form').reset();
+            document.getElementById('act-fecha').valueAsDate = new Date();
+            
+            const container = document.getElementById('fr-container');
+            container.innerHTML = `
+                <div class="fr-item bg-white p-4 rounded-xl border border-amber-200 shadow-sm relative space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+                        <div class="md:col-span-4">
+                            <label class="block text-[11px] font-bold text-gray-700 uppercase mb-1">Tipo de Factor de Riesgo (FR) *</label>
+                            <select name="fr_tipo[]" required class="w-full bg-gray-50 border border-gray-300 rounded-lg px-3 py-2 text-xs focus:ring-2 focus:ring-carabineros focus:outline-none">
+                                <option value="" disabled selected>-- Seleccione FR --</option>
+                                <option value="FR criminal">FR criminal</option>
+                                <option value="FR social">FR social</option>
+                                <option value="FR situacional" selected>FR situacional</option>
+                                <option value="FR vial">FR vial</option>
+                                <option value="FR forestal">FR forestal</option>
+                            </select>
+                        </div>
+                        <div class="md:col-span-8">
+                            <label class="block text-[11px] font-bold text-gray-700 uppercase mb-1">Descripción del Riesgo Detectado *</label>
+                            <input type="text" name="fr_desc[]" required placeholder="Describa el factor de riesgo..." class="w-full bg-gray-50 border border-gray-300 rounded-lg px-3 py-2 text-xs focus:ring-2 focus:ring-carabineros focus:outline-none">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-4 pt-2 border-t border-gray-100">
+                        <div class="md:col-span-7">
+                            <label class="block text-[11px] font-bold text-gray-700 uppercase mb-1">Compromiso Asignado *</label>
+                            <input type="text" name="fr_compromiso[]" required placeholder="Compromiso institucional o multisectorial..." class="w-full bg-gray-50 border border-gray-300 rounded-lg px-3 py-2 text-xs focus:ring-2 focus:ring-carabineros focus:outline-none">
+                        </div>
+                        <div class="md:col-span-3">
+                            <label class="block text-[11px] font-bold text-gray-700 uppercase mb-1">Estado de Solución *</label>
+                            <select name="fr_estado[]" required class="w-full bg-gray-50 border border-gray-300 rounded-lg px-3 py-2 text-xs font-semibold focus:ring-2 focus:ring-carabineros focus:outline-none">
+                                <option value="Con Solucion">Con Solución</option>
+                                <option value="Sin Solucion" selected>Sin Solución (En Gestión)</option>
+                            </select>
+                        </div>
+                        <div class="md:col-span-2 flex items-end">
+                            <button type="button" onclick="removeRiskFactorRow(this)" class="w-full bg-red-100 hover:bg-red-200 text-red-700 font-bold py-2 px-3 rounded-lg text-xs transition flex items-center justify-center gap-1">
+                                <i class="fa-solid fa-trash"></i> Quitar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            showToast("Guardado Local Exitoso", `La actividad ${tipo} fue guardada y almacenada en el equipo.`, "success");
+            document.getElementById('dashboard').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Render Table Function
+        function renderTable(filterStatus) {
+            const tbody = document.getElementById('records-table-body');
+            tbody.innerHTML = '';
+
+            let filteredRecords = records;
+            if (filterStatus !== 'all') {
+                filteredRecords = records.map(rec => {
+                    const matchingFrs = rec.factores.filter(f => f.estado === filterStatus);
+                    if (matchingFrs.length > 0) {
+                        return { ...rec, factores: matchingFrs };
+                    }
+                    return null;
+                }).filter(Boolean);
+            }
+
+            if (filteredRecords.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="6" class="py-8 text-center text-gray-500 text-sm">
+                            <i class="fa-solid fa-folder-open text-3xl mb-2 text-gray-300"></i>
+                            <p>No se encontraron registros con el filtro seleccionado.</p>
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            filteredRecords.forEach((rec) => {
+                let frHtml = '';
+                rec.factores.forEach(f => {
+                    let badgeColor = 'bg-gray-100 text-gray-800 border-gray-300';
+                    if (f.tipo.includes('criminal')) badgeColor = 'bg-red-50 text-red-700 border-red-200';
+                    else if (f.tipo.includes('social')) badgeColor = 'bg-purple-50 text-purple-700 border-purple-200';
+                    else if (f.tipo.includes('situacional')) badgeColor = 'bg-amber-50 text-amber-700 border-amber-200';
+                    else if (f.tipo.includes('vial')) badgeColor = 'bg-blue-50 text-blue-700 border-blue-200';
+                    else if (f.tipo.includes('forestal')) badgeColor = 'bg-emerald-50 text-emerald-700 border-emerald-200';
+
+                    let statusBadge = f.estado === 'Con Solucion' 
+                        ? '<span class="inline-flex items-center gap-1 bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded"><i class="fa-solid fa-check"></i> Con Solución</span>'
+                        : '<span class="inline-flex items-center gap-1 bg-amber-100 text-amber-800 text-[10px] font-bold px-2 py-0.5 rounded"><i class="fa-solid fa-clock"></i> Sin Solución</span>';
+
+                    frHtml += `
+                        <div class="mb-2 pb-2 border-b border-gray-100 last:border-0 last:mb-0 last:pb-0">
+                            <div class="flex flex-wrap items-center gap-2 mb-1">
+                                <span class="px-2 py-0.5 rounded text-[10px] font-bold border ${badgeColor}">${f.tipo}</span>
+                                ${statusBadge}
+                            </div>
+                            <p class="text-xs text-gray-800 font-medium"><strong class="text-gray-500">Riesgo:</strong> ${f.desc}</p>
+                            <p class="text-xs text-gray-600"><strong class="text-gray-500">Compromiso:</strong> ${f.compromiso}</p>
+                        </div>
+                    `;
+                });
+
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-gray-50/80 transition";
+                tr.innerHTML = `
+                    <td class="py-4 px-6 align-top">
+                        <span class="font-bold text-carabineros text-xs block">${rec.id}</span>
+                        <span class="text-gray-400 text-xs">${rec.fecha}</span>
+                    </td>
+                    <td class="py-4 px-6 align-top">
+                        <span class="bg-carabineros/10 text-carabineros font-bold text-xs px-2 py-0.5 rounded uppercase">${rec.tipo}</span>
+                        <p class="text-xs text-gray-700 font-semibold mt-1"><i class="fa-solid fa-location-dot text-carabineros-accent mr-1"></i> ${rec.comuna}</p>
+                        <p class="text-[11px] text-gray-500 mt-0.5">${rec.organizacao}</p>
+                    </td>
+                    <td class="py-4 px-6 align-top text-xs font-medium text-gray-700">
+                        ${rec.responsable}
+                    </td>
+                    <td class="py-4 px-6 align-top max-w-xs">
+                        ${frHtml}
+                    </td>
+                    <td class="py-4 px-6 align-top">
+                        <button onclick="toggleRecordStatus('${rec.id}')" class="text-xs font-bold px-2.5 py-1 rounded-lg border transition ${hasPending(rec) ? 'bg-amber-50 text-amber-700 border-amber-300 hover:bg-amber-100' : 'bg-emerald-50 text-emerald-700 border-emerald-300 hover:bg-emerald-100'}">
+                            ${hasPending(rec) ? 'Gestionar FR' : 'Completado'}
+                        </button>
+                    </td>
+                    <td class="py-4 px-6 align-top text-center">
+                        <button onclick="deleteRecord('${rec.id}')" class="text-red-500 hover:text-red-700 p-2 rounded-lg transition" title="Eliminar Registro">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function hasPending(rec) {
+            return rec.factores.some(f => f.estado === 'Sin Solucion');
+        }
+
+        function toggleRecordStatus(id) {
+            const rec = records.find(r => r.id === id);
+            if (rec) {
+                const allSolved = rec.factores.every(f => f.estado === 'Con Solucion');
+                rec.factores.forEach(f => {
+                    f.estado = allSolved ? 'Sin Solucion' : 'Con Solucion';
+                });
+                saveRecordsToStorage();
+                renderTable('all');
+                updateStats();
+                showToast("Actualizado", `Se actualizó el estado del registro ${id}`, "success");
+            }
+        }
+
+        function deleteRecord(id) {
+            records = records.filter(r => r.id !== id);
+            saveRecordsToStorage();
+            renderTable('all');
+            updateStats();
+            showToast("Registro Eliminado", `El registro ${id} fue removido del sistema local`, "error");
+        }
+
+        function filterRecords(status) {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('bg-carabineros', 'text-white');
+                btn.classList.add('bg-gray-200', 'text-gray-700');
+            });
+            event.target.classList.remove('bg-gray-200', 'text-gray-700');
+            event.target.classList.add('bg-carabineros', 'text-white');
+            renderTable(status);
+        }
+
+        // Email Dispatch Function using mailto:
+        function sendReportByEmail() {
+            const emailDestino = document.getElementById('destinatario-email').value.trim();
+            if (!emailDestino) {
+                showToast("Atención", "Debe ingresar una dirección de correo de destino.", "error");
+                return;
+            }
+
+            if (records.length === 0) {
+                showToast("Atención", "No hay registros en el sistema para enviar.", "error");
+                return;
+            }
+
+            let subject = encodeURIComponent("REPORTE OFICIAL MICC / PRC - FACTORES DE RIESGO - CARABINEROS DE CHILE");
+            
+            let bodyText = "REPORTE OFICIAL DE INTEGRACIÓN COMUNITARIA (MICC / PRC)\n";
+            bodyText += "========================================================\n\n";
+
+            records.forEach((rec, idx) => {
+                bodyText += `[REGISTRO #${idx + 1}] ID: ${rec.id}\n`;
+                bodyText += `- Tipo de Actividad: ${rec.tipo}\n`;
+                bodyText += `- Comuna / Sector: ${rec.comuna}\n`;
+                bodyText += `- Fecha: ${rec.fecha}\n`;
+                bodyText += `- Responsable: ${rec.responsable}\n`;
+                bodyText += `- Organización: ${rec.organizacao}\n`;
+                bodyText += `- Factores de Riesgo (FR) y Compromisos:\n`;
+                
+                rec.factores.forEach((f, fIdx) => {
+                    bodyText += `  * (${fIdx + 1}) [${f.tipo.toUpperCase()}] - Estado: ${f.estado}\n`;
+                    bodyText += `    Riesgo: ${f.desc}\n`;
+                    bodyText += `    Compromiso: ${f.compromiso}\n`;
+                });
+                bodyText += "\n--------------------------------------------------------\n\n";
+            });
+
+            bodyText += "Generado automáticamente desde la plataforma de gestión MICC / PRC de Carabineros de Chile.";
+
+            let mailtoLink = `mailto:${emailDestino}?subject=${subject}&body=${encodeURIComponent(bodyText)}`;
+            
+            // Open user's email client
+            window.location.href = mailtoLink;
+            showToast("Correo Generado", `Se abrió su cliente de correo con ${records.length} registros listos para enviar a ${emailDestino}.`, "success");
+        }
+
+        function updateStats() {
+            document.getElementById('stat-total').innerText = records.length;
+            document.getElementById('counter-badge').innerText = records.length;
+
+            let pendingCount = 0;
+            let resolvedCount = 0;
+            records.forEach(r => {
+                r.factores.forEach(f => {
+                    if (f.estado === 'Sin Solucion') pendingCount++;
+                    else resolvedCount++;
+                });
+            });
+
+            document.getElementById('stat-pending').innerText = pendingCount;
+            document.getElementById('stat-resolved').innerText = resolvedCount;
+        }
+
+        function showToast(title, msg, type) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-title').innerText = title;
+            document.getElementById('toast-msg').innerText = msg;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3500);
+        }
+
+        window.onload = function() {
+            renderTable('all');
+            updateStats();
+        }
+    </script>
+</body>
+</html>
+```
+eof
+
+### Mejoras incorporadas:
+1. **Campo de Correo Destinatario Directo**: Se añadió una barra dedicada en el panel de control donde puedes escribir cualquier correo electrónico institucional o personal (ej. `relaciones.comunitarias@carabineros.cl`).
+2. **Almacenamiento Local Automático (`localStorage`)**: Todos los registros ingresados con sus factores de riesgo (`FR criminal`, `FR social`, `FR situacional`, `FR vial`, `FR forestal`), compromisos y estados se guardan de forma permanente en el navegador para evitar pérdida de información al refrescar la página.
+3. **Despacho Automático vía `mailto:`**: Al hacer clic en **"Enviar por Correo"**, se abre automáticamente el cliente de correo predeterminado del usuario con el destinatario configurado y un reporte formateado y listo para despachar.
